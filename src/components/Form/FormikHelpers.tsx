@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { isObject } from "utils";
 
 const FormikErrorFocus = () => {
-  const { isSubmitting, isValidating, errors } = useFormikContext();
+  const { isSubmitting, isValidating, errors } = useFormikContext<any>();
 
   useEffect(() => {
     if (isSubmitting && !isValidating) {

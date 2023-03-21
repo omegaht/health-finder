@@ -3,10 +3,12 @@ import React from "react";
 import * as yup from "yup";
 import FormikErrorFocus from "./FormikHelpers";
 
-interface Field {
+export interface Field {
+  label: string;
   name: string;
   initialValue: any;
-  validation: yup.AnySchema;
+  validation: any;
+  icon?: React.ReactNode;
 }
 
 interface FormProps {

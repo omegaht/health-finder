@@ -49,10 +49,12 @@ const requestInterceptor = {
   onFulfilled: (_config: AxiosRequestConfigType) => {
     const config = Object.assign(_config);
 
-    _config.paramsSerializer = (params: any) =>
-      Qs.stringify(params, {
-        arrayFormat: config.arrayFormat ? config.arrayFormat : "brackets",
-      });
+    _config.paramsSerializer = {
+      encode: (params) =>
+        Qs.stringify(params, {
+          arrayFormat: config.arrayFormat ? config.arrayFormat : "brackets",
+        }),
+    };
 
     const userToken = ls.getItem("token") || null;
 
